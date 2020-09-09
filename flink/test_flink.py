@@ -32,7 +32,7 @@ class FlinkTestCase(DataprocTestCase):
   def test_flink(self, configuration, machine_suffixes):
     # Skip on 2.0+ version of Dataproc because it's not supported
     if self.getImageVersion() >= pkg_resources.parse_version("2.0"):
-      return
+      self.skipTest("Not supported in 2.0+ images")
 
     self.createCluster(
         configuration,
@@ -50,7 +50,7 @@ class FlinkTestCase(DataprocTestCase):
   def test_flink_with_optional_metadata(self, configuration, machine_suffixes):
     # Skip on 2.0+ version of Dataproc because it's not supported
     if self.getImageVersion() >= pkg_resources.parse_version("2.0"):
-      return
+      self.skipTest("Not supported in 2.0+ images")
 
     self.createCluster(
         configuration,

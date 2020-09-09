@@ -2,9 +2,9 @@
 
 set -euxo pipefail
 
-readonly NOT_SUPPORTED_MESSAGE="Docker initialization action is not supported on Dataproc 2.0+.
+readonly NOT_SUPPORTED_MESSAGE="Docker initialization action is not supported on ${DATAPROC_VERSION}.
 Use Docker Component instead: https://cloud.google.com/dataproc/docs/concepts/components/docker"
-[[ $DATAPROC_VERSION = 2.* ]] && echo "$NOT_SUPPORTED_MESSAGE" && exit 1
+[[ $DATAPROC_VERSION != 1.* ]] && echo "$NOT_SUPPORTED_MESSAGE" && exit 1
 
 readonly OS_ID=$(lsb_release -is | tr '[:upper:]' '[:lower:]')
 readonly OS_CODE=$(lsb_release -cs)
