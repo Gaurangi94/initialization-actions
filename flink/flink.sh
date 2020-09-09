@@ -24,7 +24,7 @@
 
 set -euxo pipefail
 
-readonly NOT_SUPPORTED_MESSAGE="Flink initialization action is not supported on ${DATAPROC_VERSION}.
+readonly NOT_SUPPORTED_MESSAGE="Flink initialization action is not supported on Dataproc ${DATAPROC_VERSION}.
 Use Flink Component instead: https://cloud.google.com/dataproc/docs/concepts/components/flink"
 [[ $DATAPROC_VERSION != 1.* ]] && echo "$NOT_SUPPORTED_MESSAGE" && exit 1
 
